@@ -3,44 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Land Value Maps - Londrina Metropolitan Region</title>
+    <title>Land Cover and Land Value Maps - Londrina Metropolitan Region</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             max-width: 900px;
             margin: 50px auto;
             padding: 20px;
             background-color: #f5f5f5;
+            line-height: 1.6;
         }
         h1 {
-            color: #333;
+            color: #2c5282;
             text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 40px;
         }
         .container {
             background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .map-link {
-            display: block;
-            padding: 15px;
+        .section {
+            margin-bottom: 50px;
+        }
+        .section-title {
+            color: #2c5282;
+            font-size: 1.6em;
+            border-bottom: 3px solid #2c5282;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        .map-card {
+            background-color: #f8f9fa;
+            padding: 20px;
             margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #2c5282;
+        }
+        .map-card h3 {
+            color: #333;
+            margin: 0 0 10px 0;
+            font-size: 1.1em;
+        }
+        .map-card p {
+            color: #666;
+            margin: 0 0 15px 0;
+            font-size: 0.9em;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
             background-color: #2c5282;
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            text-align: center;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            font-size: 0.9em;
         }
-        .map-link:hover {
+        .button:hover {
             background-color: #1a365d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .back-link {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 30px;
             color: #2c5282;
             text-decoration: none;
+            font-weight: 500;
         }
         .back-link:hover {
             text-decoration: underline;
@@ -50,21 +88,50 @@
 <body>
     <div class="container">
         <h1>Land Value Maps</h1>
-        <p style="text-align: center; color: #666;">Londrina Metropolitan Region (PR, Brazil)</p>
+        <p class="subtitle">Londrina Metropolitan Region (PR, Brazil)</p>
         
-        <h2>Available Maps:</h2>
+        <!-- TabPFN Section -->
+        <div class="section">
+            <h2 class="section-title">TabPFN v2 Predictions (2024)</h2>
+            <p style="color: #666; margin-bottom: 20px;">
+                Tabular Prior-Fitting Networks with confidence intervals<br>
+                <strong>Spatial Resolution:</strong> 109×109m | <strong>Reference Lot:</strong> 363m²
+            </p>
+            
+            <div class="map-card">
+                <h3>Lower Bound Estimate</h3>
+                <p>Conservative value estimates (10th percentile of prediction distribution)</p>
+                <a href="lowerBound_LandValueMapTabularPFN_NPr.html" class="button">View Lower Bound Map</a>
+            </div>
+            
+            <div class="map-card">
+                <h3>Median Estimate</h3>
+                <p>Central tendency value estimates (50th percentile)</p>
+                <a href="median_LandValueMapTabularPFN_NPr.html" class="button">View Median Map</a>
+            </div>
+            
+            <div class="map-card">
+                <h3>Upper Bound Estimate</h3>
+                <p>Optimistic value estimates (90th percentile of prediction distribution)</p>
+                <a href="upperBound_LandValueMapTabularPFN_NPr.html" class="button">View Upper Bound Map</a>
+            </div>
+        </div>
         
-        <a href="lowerBound_LandValueMapTabularPFN_NPr.html" class="map-link">
-            Lower Bound - Land Value Map
-        </a>
-        
-        <a href="median_LandValueMapTabularPFN_NPr.html" class="map-link">
-            Median - Land Value Map
-        </a>
-        
-        <a href="upperBound_LandValueMapTabularPFN_NPr.html" class="map-link">
-            Upper Bound - Land Value Map
-        </a>
+        <!-- GAMLSS Temporal Section -->
+        <div class="section">
+            <h2 class="section-title">GAMLSS Temporal Series (2000-2021)</h2>
+            <p style="color: #666; margin-bottom: 20px;">
+                Generalized Additive Models for Location, Scale and Shape<br>
+                <strong>Spatial Resolution:</strong> 50×50m | <strong>Temporal Resolution:</strong> Semi-annual<br>
+                <strong>Coverage:</strong> 44 maps (January & July, 2000-2021)
+            </p>
+            
+            <div class="map-card">
+                <h3>Interactive Temporal Viewer</h3>
+                <p>View land value evolution over 22 years with dropdown period selection</p>
+                <a href="temporal_viewer.html" class="button">Access Temporal Viewer</a>
+            </div>
+        </div>
         
         <a href="../" class="back-link">← Back to Home</a>
     </div>
