@@ -43,15 +43,19 @@
         }
         .map-card {
             background-color: #f8f9fa;
-            padding: 20px;
-            margin: 15px 0;
+            padding: 25px;
+            margin: 20px 0;
             border-radius: 8px;
             border-left: 4px solid #2c5282;
+            transition: transform 0.2s;
+        }
+        .map-card:hover {
+            transform: translateX(5px);
         }
         .map-card h3 {
             color: #333;
             margin: 0 0 10px 0;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
         .map-card p {
             color: #666;
@@ -105,17 +109,10 @@
             <h2 class="category-title">Land Cover Classification</h2>
             
             <div class="map-card">
-                <h3>CLIP-ViT-B/32 Model</h3>
-                <p>Fine-tuned Contrastive Language-Image Pre-Training model<br>
-                <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024 | <strong>Accuracy:</strong> 93%</p>
-                <a href="landcover/" class="button">Access CLIP-ViT-B/32 Map</a>
-            </div>
-            
-            <div class="map-card">
-                <h3>DINOv2 + LoRA Model</h3>
-                <p>Self-supervised vision transformer with Low-Rank Adaptation<br>
-                <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
-                <a href="landcover/" class="button">Access DINOv2-LoRA Map</a>
+                <h3>Vision Transformer Models</h3>
+                <p>Deep learning-based land cover custom classification using CLIP ViTB32 and DINOv2 LoRA models.<br>
+                <strong>Coverage:</strong> 12 municipalities | <strong>Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
+                <a href="landcover/" class="button">Explore Land Cover Maps</a>
             </div>
         </div>
         
@@ -124,19 +121,17 @@
             <h2 class="category-title">Land Value Analysis</h2>
             
             <div class="map-card">
-                <h3>TabPFN v2 Predictions (2024)</h3>
-                <p>Tabular Prior-Fitting Networks with confidence intervals<br>
-                <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024 | <strong>Reference Lot:</strong> 363m²<br>
-                <strong>Models:</strong> Lower Bound, Median, and Upper Bound estimates</p>
-                <a href="landvalue/" class="button">Access TabPFN v2 Value Maps</a>
+                <h3>TabPFN v2 Predictions</h3>
+                <p>Tabular Prior-Fitting Networks with probabilistic value estimates.<br>
+                <strong>Models:</strong> Lower Bound, Median, Upper Bound | <strong>Year:</strong> 2024</p>
+                <a href="landvalue/" class="button">Explore TabPFN Maps</a>
             </div>
             
             <div class="map-card">
-                <h3>GAMLSS Temporal Series (2000-2021)</h3>
-                <p>Generalized Additive Models for Location, Scale and Shape<br>
-                <strong>Spatial Resolution:</strong> 50×50m | <strong>Temporal Coverage:</strong> 22 years<br>
-                <strong>Frequency:</strong> Semi-annual (44 maps: January & July, 2000-2021)</p>
-                <a href="landvalue/" class="button">Access GAMLSS Temporal Maps</a>
+                <h3>GAMLSS Temporal Series</h3>
+                <p>Spatio-temporal land value evolution over 22 years.<br>
+                <strong>Period:</strong> 2000-2021 | <strong>Frequency:</strong> Semi-annual (44 maps)</p>
+                <a href="landvalue/temporal_viewer.html" class="button">Explore Temporal Series</a>
             </div>
         </div>
         
