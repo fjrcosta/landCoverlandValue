@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMLSS Temporal Series Viewer - Londrina</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #2c5282;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+        .controls {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .controls label {
+            font-weight: 600;
+            color: #2c5282;
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+        .controls select {
+            padding: 10px 15px;
+            font-size: 1em;
+            border: 2px solid #2c5282;
+            border-radius: 5px;
+            background-color: white;
+            color: #2c5282;
+            cursor: pointer;
+            min-width: 200px;
+        }
+        .controls select:hover {
+            background-color: #f0f4f8;
+        }
+        .back-link {
+            display: inline-block;
+            margin-left: 20px;
+            padding: 8px 16px;
+            background-color: #e2e8f0;
+            color: #2c5282;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #cbd5e0;
+        }
+        .map-container {
+            width: 100%;
+            height: calc(100vh - 160px);
+            border: none;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GAMLSS Temporal Series Viewer</h1>
+        <p>Londrina Urban Land Median Values (2000-2021) | Spatial Resolution: 50×50m</p>
+    </div>
+    
+    <div class="controls">
+        <label for="periodSelect">Select Period:</label>
+        <select id="periodSelect" onchange="loadMap()">
+            <option value="">-- Choose a period --</option>
+            <optgroup label="2000 - 2005">
+                <option value="temporal/jan_2000.html">January 2000</option>
+                <option value="temporal/jul_2000.html">July 2000</option>
+                <option value="temporal/jan_2001.html">January 2001</option>
+                <option value="temporal/jul_2001.html">July 2001</option>
+                <option value="temporal/jan_2002.html">January 2002</option>
+                <option value="temporal/jul_2002.html">July 2002</option>
+                <option value="temporal/jan_2003.html">January 2003</option>
+                <option value="temporal/jul_2003.html">July 2003</option>
+                <option value="temporal/jan_2004.html">January 2004</option>
+                <option value="temporal/jul_2004.html">July 2004</option>
+                <option value="temporal/jan_2005.html">January 2005</option>
+                <option value="temporal/jul_2005.html">July 2005</option>
+            </optgroup>
+            <optgroup label="2006 - 2010">
+                <option value="temporal/jan_2006.html">January 2006</option>
+                <option value="temporal/jul_2006.html">July 2006</option>
+                <option value="temporal/jan_2007.html">January 2007</option>
+                <option value="temporal/jul_2007.html">July 2007</option>
+                <option value="temporal/jan_2008.html">January 2008</option>
+                <option value="temporal/jul_2008.html">July 2008</option>
+                <option value="temporal/jan_2009.html">January 2009</option>
+                <option value="temporal/jul_2009.html">July 2009</option>
+                <option value="temporal/jan_2010.html">January 2010</option>
+                <option value="temporal/jul_2010.html">July 2010</option>
+            </optgroup>
+            <optgroup label="2011 - 2015">
+                <option value="temporal/jan_2011.html">January 2011</option>
+                <option value="temporal/jul_2011.html">July 2011</option>
+                <option value="temporal/jan_2012.html">January 2012</option>
+                <option value="temporal/jul_2012.html">July 2012</option>
+                <option value="temporal/jan_2013.html">January 2013</option>
+                <option value="temporal/jul_2013.html">July 2013</option>
+                <option value="temporal/jan_2014.html">January 2014</option>
+                <option value="temporal/jul_2014.html">July 2014</option>
+                <option value="temporal/jan_2015.html">January 2015</option>
+                <option value="temporal/jul_2015.html">July 2015</option>
+            </optgroup>
+            <optgroup label="2016 - 2021">
+                <option value="temporal/jan_2016.html">January 2016</option>
+                <option value="temporal/jul_2016.html">July 2016</option>
+                <option value="temporal/jan_2017.html">January 2017</option>
+                <option value="temporal/jul_2017.html">July 2017</option>
+                <option value="temporal/jan_2018.html">January 2018</option>
+                <option value="temporal/jul_2018.html">July 2018</option>
+                <option value="temporal/jan_2019.html">January 2019</option>
+                <option value="temporal/jul_2019.html">July 2019</option>
+                <option value="temporal/jan_2020.html">January 2020</option>
+                <option value="temporal/jul_2020.html">July 2020</option>
+                <option value="temporal/jan_2021.html">January 2021</option>
+                <option value="temporal/jul_2021.html">July 2021</option>
+            </optgroup>
+        </select>
+        <a href="index.html" class="back-link">← Back to Land Value Index</a>
+    </div>
+    
+    <iframe id="mapFrame" class="map-container" style="display:none;"></iframe>
+    
+    <div id="loadingMessage" class="loading">
+        Please select a period from the dropdown above to view the corresponding map.
+    </div>
+    
+    <script>
+        function loadMap() {
+            const select = document.getElementById('periodSelect');
+            const iframe = document.getElementById('mapFrame');
+            const loading = document.getElementById('loadingMessage');
+            
+            if (select.value) {
+                loading.style.display = 'none';
+                iframe.style.display = 'block';
+                iframe.src = select.value;
+            } else {
+                iframe.style.display = 'none';
+                loading.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
