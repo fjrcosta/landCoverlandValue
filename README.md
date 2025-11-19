@@ -106,12 +106,12 @@ Prof. MSc Eng. Felinto Costa
 Email: fjrcosta@uel.br
 
 **PhD Advisor**  
-Prof. Dr.   
-Email: @uel.br
+Prof. Dr. Mariana M. Urbano   
+Email: mrurbano@uel.br
 
 **Research Collaborator**  
-Prof. Dr.  
-Email: @uel.br
+Prof. Dr. Rodrigo R. Pescim  
+Email: rrpescim@uel.br
 
 ## License
 
