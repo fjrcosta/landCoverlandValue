@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 900px;
+            max-width: 1300px;
             margin: 50px auto;
             padding: 20px;
             background-color: #f5f5f5;
@@ -101,48 +101,69 @@
 </head>
 <body>
     <div class="container">
-        <h1>Thematic Maps of Urban Land Cover and Value</h1>
-        <p class="subtitle">Londrina Metropolitan Region (Paraná, Brazil)</p>
+        <h1>Deep Learning Urban Land Cover and Value</h1>
+        <p class="subtitle">Thematic Maps </p>
+        <p class="subtitle">Londrina-Maringa Metropolitan Region (Paraná, Brazil)</p>
         
+
+
         <!-- Land Cover Section -->
         <div class="category">
-            <h2 class="category-title">Land Cover Classification</h2>
+            <h2 class="category-title">Custom Urban Land Cover Classification</h2>
             
             <div class="map-card">
-                <h3>Deep Learning Models Classification</h3>
-                <p>Deep learning-based land cover custom classification using CLIP ViTB32 and DINOv2 LoRA model.<br>
-                <strong>Coverage:</strong> 12 municipalities | <strong>Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
+                <h3>Deep Learning Models: CLIP RSICD ViTB32 and DINOv2 LoRA</h3>
+                <strong>Custom land cover classes:</strong> 10 | <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
                 <a href="landcover/" class="button">Explore Land Cover Maps</a>
             </div>
         </div>
         
         <!-- Land Value Section -->
         <div class="category">
-            <h2 class="category-title">Urban Land Value Analysis</h2>
+            <h2 class="category-title">Urban Land Value</h2>
             
             <div class="map-card">
-                <h3>TabPFN v2 Predictions</h3>
-                <p>Tabular Prior-Fitting Networks with probabilistic value estimates.<br>
-                <strong>Predicted Unit Values:</strong> Median, Lower and Upper Bounds | <strong>Resolution:</strong> 109×109m |<strong>Year:</strong> 2024</p>
+                <h3>Deep Learning Model: TabPFN v2</h3>
+                <strong>Predicted Unit Values:</strong> Median, Lower and Upper Bounds (CI=0.80) | <strong>Spatial Resolution:</strong> 109×109m |<strong>Year:</strong> 2024</p>
                 <a href="landvalue/" class="button">Explore TabPFN Maps</a>
             </div>
             
             <div class="map-card">
-                <h3>GAMLSS Temporal Series Predictions</h3>
+                <h3>Model: GAMLSS Spatio Temporal</h3>
                 <p>Spatio-temporal land value evolution over 22 years.<br>
-                <strong>Predicted Median Unit Values</strong></p>
-                <strong>Period:</strong> 2000-2021 | <strong>Resolution:</strong> 50×50m | <strong>Frequency:</strong> Annual (22 maps)</p>
-                <a href="landvalue/temporal_viewer.html" class="button">Explore Temporal Series</a>
+                <strong>Predicted Median Unit Values</strong> | <strong>Spatial Resolution:</strong> 50×50m | <strong>Period:</strong> 2000-2021</p>
+                <a href="landvalue/temporal_viewer.html" class="button">Explore Espatio-temporal Series</a>
             </div>
         </div>
-        
-        <!-- Contact Section -->
-        <div class="contact">
-            <h2>Contact Information</h2>
-            <p><strong>Author:</strong> Prof. MSc Eng. Felinto Costa</p>
-            <p><strong>Institution:</strong> Department of Statistics, Londrina State University (UEL)</p>
-            <p><strong>Email:</strong> <a href="mailto:fjrcosta@uel.br">fjrcosta@uel.br</a></p>
-        </div>
+		  <!-- Research Team Section -->
+		<div class="research-team">
+		    <h2>Research Team</h2>
+		    
+		    <!-- Institution -->
+		    <p class="institution"><strong>Institution:</strong> Department of Statistics, Londrina State University (UEL, Brazil)</p>
+		    
+		    <!-- Author -->
+		    <div class="team-member author">
+		        <h3>Author</h3>
+		        <p><strong>Prof. MSc Eng. Felinto Costa</strong></p>
+		        <p>Email: <a href="mailto:fjrcosta@uel.br">fjrcosta@uel.br</a></p>
+		    </div>
+		    
+		    <!-- Advisor -->
+		    <div class="team-member advisor">
+		        <h3>Advisor</h3>
+		        <p><strong>Prof. Dr. [Nome Completo]</strong></p>
+		        <p>Email: <a href="mailto:[email]@uel.br">[email]@uel.br</a></p>
+		    </div>
+		    
+		    <!-- Collaborator -->
+		    <div class="team-member collaborator">
+		        <h3>Collaborator</h3>
+		        <p><strong>Prof. Dr. [Nome Completo]</strong></p>
+		        <p>Email: <a href="mailto:[email]@uel.br">[email]@uel.br</a></p>
+		    </div>
+		</div>
+
     </div>
 </body>
 </html>
