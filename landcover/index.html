@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Land Cover Classification Maps - Londrina Metropolitan Region</title>
+    <title>Land Cover Classification Maps</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -122,22 +122,21 @@
 <body>
     <div class="container">
         <h1>Land Cover Classification Maps</h1>
-        <p class="subtitle">Londrina Metropolitan Region (Paraná, Brazil)</p>
+        
         
         <div class="section">
-            <h2 class="section-title">Vision Transformer Models</h2>
+            
             <p style="color: #666; margin-bottom: 30px;">
-                Deep learning-based land cover classification using satellite imagery from Google Earth.
-                Both models trained on custom dataset with 10 land cover classes.
+                Deep learning-based urban land cover classification using freely avaliable high resolution satellite imagery from Google Earth.
             </p>
             
             <!-- CLIP Model -->
             <div class="map-card">
                 <h3>
-                    CLIP-ViT-B/32 Model
+                    CLIP Rsicd 
                 </h3>
                 <p>
-                    Contrastive Language-Image Pre-Training (CLIP) model with Vision Transformer (ViTB32) as a feature extractor.
+                    Contrastive Language-Image Pre-Training (CLIP) model with Vision Transformer (ViT-B/32) backbone, fine-tuned on the RSICD dataset, used as a feature extractor.
                 </p>
                 <div class="specs">
                     <strong>Specifications:</strong><br>
@@ -150,11 +149,10 @@
             <!-- DINOv2 Model -->
             <div class="map-card">
                 <h3>
-                    DINOv2 + LoRA Model
+                    DINOv2 
                 </h3>
                 <p>
-                    Self-supervised vision transformer (DINOv2) with Low-Rank Adaptation (LoRA) for 
-                    efficient fine-tuning and enhanced feature extraction from satellite imagery.
+                    Self-supervised vision transformer (DINOv2) with Low-Rank Adaptation (LoRA) for efficient fine-tuning.
                 </p>
                 <div class="specs">
                     <strong>Specifications:</strong><br>

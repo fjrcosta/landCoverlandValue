@@ -87,32 +87,38 @@
 </head>
 <body>
     <div class="container">
-        <h1>Land Value Maps</h1>
-        <p class="subtitle">Londrina Metropolitan Region (PR, Brazil)</p>
+        <h1>Urban Land Value Maps</h1>
         
         <!-- TabPFN Section -->
         <div class="section">
-            <h2 class="section-title">TabPFN v2 Predictions (2024)</h2>
+            <h2 class="section-title">TabPFN v2 </h2>
             <p style="color: #666; margin-bottom: 20px;">
                 Tabular Prior-Fitting Networks with confidence intervals<br>
-                <strong>Spatial Resolution:</strong> 109×109m | <strong>Reference Lot:</strong> 363m²
-            </p>
+                <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
+
+            <div class="map-card">            
             
-            <div class="map-card">
-                <h3>Lower Bound Estimate</h3>
-                <p>Conservative value estimates (10th percentile of prediction distribution)</p>
+            <div class="specs">
+                <strong>Lower Bound Estimate:</strong><br>
+                • Conservative value estimates (10th percentile of prediction distribution)<br>
+            </div>
                 <a href="lowerBound_LandValueMapTabularPFN_NPr.html" class="button">View Lower Bound Map</a>
             </div>
             
             <div class="map-card">
-                <h3>Median Estimate</h3>
-                <p>Central tendency value estimates (50th percentile)</p>
+                <div class="specs">
+                <strong>Median Estimate:</strong><br>
+                • Central tendency value estimates (50th percentile of prediction distribution)<br>
+            </div>
                 <a href="median_LandValueMapTabularPFN_NPr.html" class="button">View Median Map</a>
             </div>
             
             <div class="map-card">
-                <h3>Upper Bound Estimate</h3>
-                <p>Optimistic value estimates (90th percentile of prediction distribution)</p>
+                <div class="specs">
+                <strong>Upper Bound Estimate:</strong><br>
+                • Optimistic value estimates (90th percentile of prediction distribution)
+                <br>
+            </div>   
                 <a href="upperBound_LandValueMapTabularPFN_NPr.html" class="button">View Upper Bound Map</a>
             </div>
         </div>
@@ -121,14 +127,13 @@
         <div class="section">
             <h2 class="section-title">GAMLSS Temporal Series (2000-2021)</h2>
             <p style="color: #666; margin-bottom: 20px;">
-                Generalized Additive Models for Location, Scale and Shape<br>
-                <strong>Spatial Resolution:</strong> 50×50m | <strong>Temporal Resolution:</strong> Semi-annual<br>
-                <strong>Coverage:</strong> 22 maps (July, 2000-2021)
+                Spatio-temporal Generalized Additive Models for Location, Scale and Shape<br>
+                <strong>Spatial Resolution:</strong> 50×50m | <strong>Temporal Coverage:</strong> July, 2000-2021<br>
             </p>
             
             <div class="map-card">
                 <h3>Interactive Temporal Viewer</h3>
-                <p>View land value evolution over 22 years with dropdown period selection</p>
+                <p>View unit land value evolution over 22 years</p>
                 <a href="temporal_viewer.html" class="button">Access Temporal Viewer</a>
             </div>
         </div>
