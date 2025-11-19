@@ -105,6 +105,14 @@ Genuinely spatiotemporal modeling framework for the period 2000-2021 using GAMLS
 Prof. MSc Eng. Felinto Costa  
 Email: fjrcosta@uel.br
 
+**Advisor**  
+Prof. Dr.   
+Email: @uel.br
+
+**Collaborator**  
+Prof. Dr.  
+Email: @uel.br
+
 ## License
 
 This project is made available for academic and research purposes.
