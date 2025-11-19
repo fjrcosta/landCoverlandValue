@@ -109,7 +109,7 @@ Email: fjrcosta@uel.br
 Prof. Dr.   
 Email: @uel.br
 
-**Collaborator**  
+**Research Collaborator**  
 Prof. Dr.  
 Email: @uel.br
 
