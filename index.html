@@ -97,9 +97,39 @@
         .contact a:hover {
             text-decoration: underline;
         }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px; /* ajuste o valor conforme necessário */
+        }
+        .ppu-section {
+            display: flex;
+            align-items: flex-end;
+            gap: 5px; /* espaço entre logo e texto */
+        }
+        .header-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
     </style>
 </head>
 <body>
+    <header>
+    <div class="header-content">
+        <img src="logo_uel.png" width="400" alt="Logo UEL" class="header-logo-left">
+        <div class="ppu-section">
+            <img src="logo_ppu.png" width="100" alt="Logo PPU" class="header-logo-right">
+            <span>Programa Assoc. UEM-UEL<br> de Pós-Graduação em Arq. e Urbanismo</span>
+        </div>
+    </div>
+    </header>
     <div class="container">
         <h1>Deep Learning Urban Land Cover and Value</h1>
         <p class="subtitle">Thematic Maps </p>
