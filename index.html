@@ -1,351 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Land Cover and Land Value Maps - Londrina Metropolitan Region</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 30px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef3 100%);
-            line-height: 1.7;
-            color: #2d3748;
-        }
-        
-        /* Header Section */
-        .header-content {
-            background: linear-gradient(to right, #F9B233, #000000);
-            padding: 30px 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .uel-section img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .ppu-section {
-            display: flex;
-            align-items: flex-end;
-            gap: 15px;
-        }
-        
-        .ppu-section span {
-            color: #000000;
-            font-size: 0.95em;
-            font-weight: 500;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-        
-        /* Main Container */
-        .container {
-            background-color: #ffffff;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-        
-        /* Typography */
-        h1 {
-            color: #1a365d;
-            text-align: center;
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: #718096;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-        
-        /* Category Sections */
-        .category {
-            margin-bottom: 60px;
-        }
-        
-        .category-title {
-            color: #2d3748;
-            font-size: 1.9em;
-            font-weight: 600;
-            border-bottom: 3px solid #000000;
-            padding-bottom: 12px;
-            margin-bottom: 30px;
-            position: relative;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Land Cover and Land Value Maps - Londrina Metropolitan Region</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <style>
+    :root {
+      --primary: #F9B233;
+      --primary-hover: #e5a326;
+      --background-gradient: linear-gradient(135deg, #fef6e0 0%, #fffdf5 100%);
+    }
 
-        .category-title::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: #000000;
-        }
-        
-        /* Map Cards */
-        .map-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 30px;
-            margin: 25px 0;
-            border-radius: 12px;
-            border-left: 5px solid #cbd5e0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .map-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            border-left-color: #2d3748;
-        }
-        
-        .map-card h3 {
-            color: #2d3748;
-            margin: 0 0 15px 0;
-            font-size: 1.4em;
-            font-weight: 600;
-        }
-        
-        .map-card p {
-            color: #4a5568;
-            margin: 0 0 15px 0;
-            font-size: 1em;
-            line-height: 1.6;
-        }
-        
-        .specs {
-            background-color: #f7fafc;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-size: 0.95em;
-            color: #2d3748;
-            border-left: 3px solid #cbd5e0;
-        }
-        
-        /* Buttons */
-        .button {
-            display: inline-block;
-            padding: 14px 28px;
-            background: #2d3748;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            font-size: 0.95em;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-top: 10px;
-        }
-        
-        .button:hover {
-            background: #F9B233;
-            color: #000000;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(249,178,51,0.4);
-        }
-        
-        /* Research Team Section */
-        .research-team {
-            border-top: 3px solid #cbd5e0;
-            margin-top: 60px;
-            padding-top: 40px;
-        }
-        
-        .research-team h2 {
-            color: #2d3748;
-            font-size: 2em;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        
-        .institution {
-            background-color: #f7fafc;
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #cbd5e0;
-        }
-        
-        .team-member {
-            background-color: #f8f9fa;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 10px;
-            border-left: 4px solid #cbd5e0;
-            transition: all 0.3s ease;
-        }
-        
-        .team-member:hover {
-            border-left-color: #2d3748;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        
-        .team-member h3 {
-            color: #2d3748;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .team-member p {
-            color: #4a5568;
-            margin: 8px 0;
-        }
-        
-        .team-member a {
-            color: #2d3748;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .team-member a:hover {
-            color: #2d3748;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-            
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            .category-title {
-                font-size: 1.5em;
-            }
-        }
-    </style>
+    html, body {
+      background: var(--background-gradient);
+    }
+
+    body {
+      margin: 0 auto;
+      max-width: 1400px;
+      padding: 30px;
+    }
+
+    .block {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .block h2, .block h3 {
+      color: #2d2d2d;
+    }
+
+    .block a.contrast {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #2d3748;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 0.95em;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 10px;
+    }
+
+    .block a.contrast:hover {
+      background: #F9B233;
+      color: #000000;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(249, 178, 51, 0.4);
+    }
+
+    .institution-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: linear-gradient(to right, #F9B233 0%, #f0a127 35%, #d1942b 65%, #000000 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      margin: 0 auto 0rem;
+      max-width: 900px;
+      gap: 1rem;
+    }
+
+    .logo-row {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .institution-header img {
+      display: block;
+      margin: 0;
+      height: auto;
+    }
+
+    .logo-uel {
+      width: 400px;
+    }
+
+    .logo-ppu {
+      width: 100px;
+    }
+
+    .institution-text {
+      text-align: left;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      color: #000;
+      font-family: 'Lato', 'Penguin', sans-serif;
+    }
+
+    main.container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background: #f9f9f9;
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="uel-section">
-                <img src="logo_uel.png" width="400" alt="Logo UEL" class="header-logo-left">
-            </div>
-            <div class="ppu-section">
-                <img src="logo_ppu.png" width="100" alt="Logo PPU" class="header-logo-right">
-                <span>Programa Assoc. UEM-UEL<br>de Pós-Graduação em Arq. e Urbanismo</span>
-            </div>
-        </div>
-    </header>
-    
-    <div class="container">
-        <h1>Deep Learning Urban Land Cover and Value</h1>
-        <p class="subtitle">Thematic Maps</p>
-        <p class="subtitle">Londrina-Maringá Metropolitan Region (Paraná, Brazil)</p>
-        
-        <!-- Land Cover Section -->
-        <div class="category">
-            <h2 class="category-title">Urban Land Cover Custom Classification</h2>
-            
-            <div class="map-card">
-                <h3>Deep Learning Models: CLIP RSICD ViTB/32 and DINOv2 ViTL/14 LoRA</h3>
-                <p><strong>Custom land cover classes:</strong> 10 | <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
-                <a href="landcover/" class="button">Visualize Land Cover Classification Map</a>
-            </div>
-        </div>
-        
-        <!-- Land Value Section -->
-        <div class="category">
-            <h2 class="category-title">Urban Land Value</h2>
-            
-            <div class="map-card">
-                <h3>Deep Learning Models: TabPFN v2 (1) and GAMLSS Spatio-Temporal (2)</h3>
-                <div class="specs">
-                    <strong>(1) Predicted Unit Values:</strong> Median, Lower and Upper Bounds (CI=0.80) | <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024
-                </div>
-                <div class="specs">
-                    <strong>(2) Predicted Unit Values:</strong> Median | <strong>Spatial Resolution:</strong> 50×50m | <strong>Time Period:</strong> 2000-2021
-                </div>
-                <a href="landvalue/" class="button">Visualize Urban Land Values Maps</a>
-            </div>
-        </div>
 
-        <!-- Combined Analysis Section -->
-        <div class="category">
-            <h2 class="category-title">Joint Analysis</h2>
-            
-            <div class="map-card">
-                <h3>Land Cover × Land Value Split View</h3>
-                <p>Joint analysis of urban land cover classification (DINOv2 ViTL/14 LoRA) and median unit predicted urban land values (TabPFN v2) using a side-by-side slider visualization.</p>
-                <div class="specs">
-                    <strong>Left Layer:</strong> Urban Land Cover (10 classes) | <strong>Right Layer:</strong> Median Unit Land Value (R$/m²)<br>
-                    <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024
-                </div>
-                <a href="landcover_landvalue/LandCover_DINO_LandValue_TabPFN.html" class="button">Visualize Urban Land Cover and Land Value Map</a>
-            </div>
-            
-            <div class="map-card">
-                <h3>Urban Land Cover × Transport Structure</h3>
-                <p>Joint analysis of urban land cover classification (DINOv2 ViTL/14 LoRA) and transport network infrastructure (OpenStreetMap functional hierarchy based on FHWA classification standards).</p>
-                <a href="landcover_transport/LandCover_DINO_TransportStructure.html" class="button">Visualize Urban Land Cover and Transport Structure Map</a>
-            </div>
-
-            <div class="map-card">
-                <h3>Urban Land Value × Transport Structure</h3>
-                <p>Joint analysis of urban land value (TabPFN v2) and transport network infrastructure (OpenStreetMap functional hierarchy based on FHWA classification standards).</p>
-                <a href="landvalue_transport/LandValue_TabPFN_TransportStructure.html" class="button">Visualize Urban Land Value and Transport Structure Map</a>
-            </div>
-        </div>
-
-        <!-- Research Team Section -->
-        <div class="research-team">
-            <h2>Research Team</h2>
-            
-            <p class="institution"><strong>Institution:</strong> Department of Statistics, Londrina State University (UEL, Brazil)</p>
-            
-            <div class="team-member author">
-                <h3>Author</h3>
-                <p><strong>Prof. MSc Eng. Felinto Costa</strong></p>
-                <p>Email: <a href="mailto:fjcosta@uel.br">fjcosta@uel.br</a></p>
-            </div>
-            
-            <div class="team-member advisor">
-                <h3>PhD Advisor</h3>
-                <p><strong>Prof. Dra. Mariana R. Urbano</strong></p>
-                <p>Email: <a href="mailto:mrurbano@uel.br">mrurbano@uel.br</a></p>
-            </div>
-            
-            <div class="team-member collaborator">
-                <h3>Professor Collaborator</h3>
-                <p><strong>Prof. Dr. Rodrigo R. Pescim</strong></p>
-                <p>Email: <a href="mailto:rrpescim@uel.br">rrpescim@uel.br</a></p>
-            </div>
-        </div>
+  <section class="institution-header">
+    <div class="logo-row">
+      <img class="logo-uel" src="logo_uel.png" alt="Logo UEL" />
     </div>
+    <div class="logo-row">
+      <img class="logo-ppu" src="logo_ppu.png" alt="Logo PPU" />
+      <div class="institution-text">
+        <span>Programa Assoc. UEM-UEL<br>de Pós-Graduação em Arq. e Urbanismo</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- Block 1: Project Overview -->
+    <section class="block">
+      <h2>Deep Learning for Urban Land Cover <br>& Urban Land Valuation</h2>
+      <p><em>Thematic Maps</em></p>
+      <p>Londrina-Maringá Metropolitan Region, Paraná, Brazil</p>
+    </section>
+
+    
+
+    <!-- Block 2: Land Cover -->
+    <section class="block" id="landcover">
+      <h2>Urban Land Cover Custom Classification</h2>
+      <h3>Deep Learning Models: CLIP RSICD ViTB/32 and DINOv2 ViTL/14 LoRA</h3>
+      <p><strong>Custom land cover classes:</strong> 10</p>
+      <p><strong>Spatial Resolution:</strong> 109×109m</p>
+      <p><strong>Year:</strong> 2024</p>
+      <p><a href="landcover/" class="contrast">Visualize Land Cover Classification Map</a></p>
+    </section>
+
+    <!-- Block 4: Land Value -->
+    <section class="block" id="landvalue">
+      <h2>Urban Land Value</h2>
+      <h3>Deep Learning Models: TabPFN v2 (1) and GAMLSS Spatio-Temporal (2)</h3>
+      <p><strong>(1) Predicted Unit Values:</strong> Median, Lower and Upper Bounds (CI=0.80) | <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
+      <p><strong>(2) Predicted Unit Values:</strong> Median | <strong>Spatial Resolution:</strong> 50×50m | <strong>Time Period:</strong> 2000-2021</p>
+      <p><a href="landvalue/" class="contrast">Visualize Urban Land Values Maps</a></p>
+    </section>
+
+    <!-- Block 5: Cross Analysis -->
+    <section class="block" id="crossanalysis">
+      <h2>Joint Analysis</h2>
+
+      <h3>Land Cover × Land Value Split View</h3>
+      <p>Joint analysis of urban land cover classification (DINOv2 ViTL/14 LoRA) and median unit predicted urban land values (TabPFN v2) using a side-by-side slider visualization.</p>
+      <p><strong>Left Layer:</strong> Urban Land Cover (10 classes) | <strong>Right Layer:</strong> Median Unit Land Value (R$/m²)</p>
+      <p><strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
+      <p><a href="landcover_landvalue/LandCover_DINO_LandValue_TabPFN.html" class="contrast">Visualize Urban Land Cover and Land Value Map</a></p>
+
+      <h3>Urban Land Cover × Transport Structure</h3>
+      <p>Joint analysis of urban land cover classification (DINOv2 ViTL/14 LoRA) and transport network infrastructure (OpenStreetMap functional hierarchy based on FHWA classification standards).</p>
+      <p><a href="landcover_transport/LandCover_DINO_TransportStructure.html" class="contrast">Visualize Urban Land Cover and Transport Structure Map</a></p>
+
+      <h3>Urban Land Value × Transport Structure</h3>
+      <p>Joint analysis of urban land value (TabPFN v2) and transport network infrastructure (OpenStreetMap functional hierarchy based on FHWA classification standards).</p>
+      <p><a href="landvalue_transport/LandValue_TabPFN_TransportStructure.html" class="contrast">Visualize Urban Land Value and Transport Structure Map</a></p>
+    </section>
+
+    <!-- Block 4: Institutional Notes + Research Team -->
+    <section class="block">
+      <h2>Institutional Notes</h2>
+      <p>Research project conducted by Felinto Costa, PhD candidate in the UEM-UEL Joint Graduate Program in Architecture and Urbanism (PPU), affiliated with the Department of Statistics at the State University of Londrina (UEL), Brazil.</p>
+      <h3>Research Team</h3>
+      <ul>
+        <li><strong>Author:</strong> Prof. MSc Eng. Felinto Costa – <a href="mailto:fjcosta@uel.br">fjcosta@uel.br</a></li>
+        <li><strong>PhD Advisor:</strong> Prof. Dra. Mariana R. Urbano – <a href="mailto:mrurbano@uel.br">mrurbano@uel.br</a></li>
+        <li><strong>Collaborator:</strong> Prof. Dr. Rodrigo R. Pescim – <a href="mailto:rrpescim@uel.br">rrpescim@uel.br</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <small>
+      <a href="https://www.uel.br" target="_blank">UEL</a>
+      &nbsp;•&nbsp;
+      <a href="https://www.uel.br/pos/ppuarqurb_uem_uel/" target="_blank">PPU</a>
+      &nbsp;•&nbsp;
+      <a href="#">Top</a>
+    </small>
+  </footer>
+
 </body>
 </html>
