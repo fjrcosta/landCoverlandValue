@@ -5,92 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Land Cover Classification Maps</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-            line-height: 1.6;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef3 100%);
+            line-height: 1.7;
+            color: #2d3748;
         }
+        
         h1 {
-            color: #2c5282;
+            color: #1a365d;
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
+        
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #718096;
             font-size: 1.1em;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
         }
+        
         .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
+        
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
+        
         .section-title {
-            color: #2c5282;
-            font-size: 1.6em;
-            border-bottom: 3px solid #2c5282;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+            color: #2d3748;
+            font-size: 1.9em;
+            font-weight: 600;
+            border-bottom: 3px solid #000000;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            position: relative;
         }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #000000;
+        }
+        
         .map-card {
-            background-color: #f8f9fa;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border-left: 4px solid #2c5282;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border-left: 5px solid #cbd5e0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
+        
+        .map-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left-color: #2d3748;
+        }
+        
         .map-card h3 {
-            color: #333;
-            margin: 0 0 12px 0;
-            font-size: 1.3em;
-        }
-        .map-card p {
-            color: #666;
+            color: #2d3748;
             margin: 0 0 15px 0;
-            font-size: 0.95em;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .map-card p {
+            color: #4a5568;
+            margin: 0 0 15px 0;
+            font-size: 1em;
             line-height: 1.6;
         }
-        .map-card .specs {
-            background-color: #fff;
-            padding: 12px;
-            border-radius: 5px;
-            margin: 10px 0 15px 0;
-            font-size: 0.9em;
+        
+        .specs {
+            background-color: #f7fafc;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 0.95em;
+            color: #2d3748;
+            border-left: 3px solid #cbd5e0;
         }
-        .map-card .specs strong {
-            color: #2c5282;
+        
+        .specs strong {
+            color: #2d3748;
         }
+        
         .button {
             display: inline-block;
-            padding: 12px 24px;
-            background-color: #2c5282;
-            color: white;
+            padding: 14px 28px;
+            background: #2d3748;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
             font-size: 0.95em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 10px;
         }
+        
         .button:hover {
-            background-color: #1a365d;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background: #F9B233;
+            color: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(249,178,51,0.4);
         }
+        
         .button.disabled {
             background-color: #cbd5e0;
             color: #718096;
             cursor: not-allowed;
             pointer-events: none;
         }
+        
         .status-badge {
             display: inline-block;
             padding: 4px 10px;
@@ -99,23 +148,90 @@
             font-weight: 600;
             margin-left: 10px;
         }
+        
         .status-available {
             background-color: #c6f6d5;
             color: #22543d;
         }
+        
         .status-coming {
             background-color: #fef5e7;
             color: #975a16;
         }
+        
         .back-link {
             display: inline-block;
-            margin-top: 30px;
-            color: #2c5282;
+            padding: 14px 28px;
+            background-color: #e2e8f0;
+            color: #2d3748;
             text-decoration: none;
-            font-weight: 500;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
+        
         .back-link:hover {
-            text-decoration: underline;
+            background-color: #cbd5e0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Grid Classes and Municipalities */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .grid-item {
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #cbd5e0;
+        }
+        
+        .color-square {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
         }
     </style>
 </head>
@@ -123,41 +239,35 @@
     <div class="container">
         <h1>Land Cover Classification Maps</h1>
         
-        
         <div class="section">
-            
-            <p style="color: #666; margin-bottom: 30px;">
-                Deep learning-based urban land cover classification using freely avaliable high resolution satellite imagery from Google Earth.
+            <p style="color: #718096; margin-bottom: 30px; font-size: 1.05em; text-align: center;">
+                Deep learning-based urban land cover classification using freely available high resolution satellite imagery from Google Earth.
             </p>
             
             <!-- CLIP Model -->
             <div class="map-card">
-                <h3>
-                    CLIP RSICD 
-                </h3>
+                <h3>CLIP RSICD</h3>
                 <p>
                     Contrastive Language-Image Pre-Training (CLIP) model with Vision Transformer (ViT-B/32) backbone, fine-tuned on the RSICD dataset, used as a feature extractor.
                 </p>
                 <div class="specs">
                     <strong>Specifications:</strong><br>
                     • Spatial Resolution: 109×109m<br>
-                    • Year: 2024<br>
+                    • Year: 2024
                 </div>
                 <a href="landcoverCLIP_NP.html" class="button">View CLIP Classification Map</a>
             </div>
             
             <!-- DINOv2 Model -->
             <div class="map-card">
-                <h3>
-                    DINOv2 ViTL/14
-                </h3>
+                <h3>DINOv2 ViTL/14</h3>
                 <p>
                     Self-supervised vision transformer (DINOv2) with Low-Rank Adaptation (LoRA) for efficient fine-tuning.
                 </p>
                 <div class="specs">
                     <strong>Specifications:</strong><br>
                     • Spatial Resolution: 109×109m<br>
-                    • Year: 2024<br>
+                    • Year: 2024
                 </div>
                 <a href="landcoverDINO_NP.html" class="button">View DINOv2 LoRA Classification Map</a>
             </div>
@@ -166,82 +276,66 @@
         <!-- Legend/Classes Section -->
         <div class="section">
             <h2 class="section-title">Land Cover Classes</h2>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;">
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #bf8040; font-size: 18px;">■</span> Bare Soil
+            <div class="grid-container">
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #bf8040;"></span>
+                    Bare Soil
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #009900; font-size: 18px;">■</span> Shrub/Scrub
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #009900;"></span>
+                    Shrub/Scrub
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #ffdf99; font-size: 18px;">■</span> Row Crops
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #ffdf99;"></span>
+                    Row Crops
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #33ff33; font-size: 18px;">■</span> Grass/Pasture
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #33ff33;"></span>
+                    Grass/Pasture
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #69000d; font-size: 18px;">■</span> Developed High Density
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #69000d;"></span>
+                    Developed High Density
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #e93529; font-size: 18px;">■</span> Developed Industrial
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #e93529;"></span>
+                    Developed Industrial
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #c7171c; font-size: 18px;">■</span> Developed Low Density
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #c7171c;"></span>
+                    Developed Low Density
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #a10e15; font-size: 18px;">■</span> Developed Medium Density
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #a10e15;"></span>
+                    Developed Medium Density
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #003300; font-size: 18px;">■</span> Perennial Trees
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #003300;"></span>
+                    Perennial Trees
                 </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px;">
-                    <span style="color: #0b9fd5; font-size: 18px;">■</span> Perennial Water
+                <div class="grid-item">
+                    <span class="color-square" style="background-color: #0b9fd5;"></span>
+                    Perennial Water
                 </div>
             </div>
         </div>
 
-
-
         <!-- Municipalities Section -->
         <div class="section">
             <h2 class="section-title">Municipalities</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;">
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Londrina
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Cambé
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Ibiporã
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Apucarana
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Arapongas
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Cambira
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Jandaia do Sul
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Mandaguari
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Marialva
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Rolândia
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Sarandi
-                </div>
-                <div style="padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: center;">
-                    Maringá
-                </div>
+            <div class="grid-container">
+                <div class="grid-item">Londrina</div>
+                <div class="grid-item">Cambé</div>
+                <div class="grid-item">Ibiporã</div>
+                <div class="grid-item">Apucarana</div>
+                <div class="grid-item">Arapongas</div>
+                <div class="grid-item">Cambira</div>
+                <div class="grid-item">Jandaia do Sul</div>
+                <div class="grid-item">Mandaguari</div>
+                <div class="grid-item">Marialva</div>
+                <div class="grid-item">Rolândia</div>
+                <div class="grid-item">Sarandi</div>
+                <div class="grid-item">Maringá</div>
             </div>
         </div>
         
