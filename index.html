@@ -103,18 +103,18 @@
     <div class="container">
         <h1>Deep Learning Urban Land Cover and Value</h1>
         <p class="subtitle">Thematic Maps </p>
-        <p class="subtitle">Londrina-Maringa Metropolitan Region (Paraná, Brazil)</p>
+        <p class="subtitle">Londrina-Maringá Metropolitan Region (Paraná, Brazil)</p>
         
 
 
         <!-- Land Cover Section -->
         <div class="category">
-            <h2 class="category-title">Custom Urban Land Cover Classification</h2>
+            <h2 class="category-title">Urban Land Cover Custom Classification</h2>
             
             <div class="map-card">
                 <h3>Deep Learning Models: CLIP RSICD ViTB/32 and DINOv2 ViTL/14 LoRA</h3>
                 <strong>Custom land cover classes:</strong> 10 | <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
-                <a href="landcover/" class="button">Explore Land Cover Maps</a>
+                <a href="landcover/" class="button">Visualize Land Cover Classification Map</a>
             </div>
         </div>
         
@@ -128,33 +128,40 @@
                    <strong>(1) Predicted Unit Values:</strong> Median, Lower and Upper Bounds (CI=0.80) | <strong>Spatial Resolution:</strong> 109×109m |<strong>Year:</strong> 2024 <br>
                    </div>
                    <div class="specs">
-                   <strong>(2) Predicted Unit Values:</strong> Median | <strong>
-                    <p>Spatial Resolution:</strong> 50×50 | <strong>Period:</strong> 2000-2021</p>
+                   <strong>(2) Predicted Unit Values:</strong> Median | <strong>Spatial Resolution:</strong> 50×50 | <strong>Time Period:</strong> 2000-2021</p>
                    </div>                   
-               <a href="landvalue/" class="button">Explore Land Values Maps</a>
+               <a href="landvalue/" class="button">Visualize Urban Land Values Maps</a>
             </div>
         </div>
 
 
                 <!-- Combined Analysis Section -->
         <div class="category">
-            <h2 class="category-title">Integrated Analysis</h2>
+            <h2 class="category-title">Joint analysis</h2>
             
             <div class="map-card">
                 <h3>Land Cover × Land Value Split View</h3>
-                <p>Interactive comparison between urban land cover classification (DINOv2 ViTL/14 LoRA) and median unit predicted urban land values (TabPFN v2) using a side-by-side slider visualization.</p>
+                <p>Joint analysis of urban land cover classification (DINOv2 ViTL/14 LoRA) and median unit predicted urban land values (TabPFN v2) using a side-by-side slider visualization.</p>
                 <div class="specs">
                     <strong>Left Layer:</strong> Urban Land Cover (10 classes) | <strong>Right Layer:</strong> Median Unit Land Value (R$/m²)<br>
                     <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024
                 </div>
-                <a href="landcover_landvalue/LandCover_DINO_LandValue_TabPFN.html" class="button">Explore Split View Map</a>
+                <a href="landcover_landvalue/LandCover_DINO_LandValue_TabPFN.html" class="button">Visualize Urban Land Cover and Land Value Map</a>
             </div>
             
             <div class="map-card">
-                <h3>Land Cover × Urban Transport Structure</h3>
-                <p>Interactive visualization of urban land cover classification (DINOv2 ViTL/14 LoRA) and urban transport network infrastructure (OpenStreetMap functional hierarchy based on FHWA classification standards).</p>
-                <a href="landcover_transport/LandCover_DINO_TransportStructure.html" class="button">Explore Land Cover and Urban Transport Structure Maps</a>
+                <h3>Urban Land Cover × Transport Structure</h3>
+                <p>Joint analysis of urban land cover classification (DINOv2 ViTL/14 LoRA) and transport network infrastructure (OpenStreetMap functional hierarchy based on FHWA classification standards).</p>
+                <a href="landcover_transport/LandCover_DINO_TransportStructure.html" class="button">Visualize Urban Land Cover and Transport Structure Map</a>
             </div>
+
+
+            <div class="map-card">
+                <h3>Urban Land Value × Transport Structure</h3>
+                <p>Joint analysis of urban land value (TabPFN v2) and transport network infrastructure (OpenStreetMap functional hierarchy based on FHWA classification standards).</p>
+                <a href="landvalue_transport/LandValue_TabPFN_TransportStructure.html" class="button">Visualize Urban Land Value and Transport Structure Map</a>
+            </div>
+
         </div>    
 
 
@@ -174,15 +181,19 @@
 		    <div class="team-member author">
 		        <h3>Author</h3>
 		        <p><strong>Prof. MSc Eng. Felinto Costa</strong></p>
-		        <p>Email: <a href="/cdn-cgi/l/email-protection#b3d5d9c1d0dcc0c7d2f3c6d6df9dd1c1"><span class="__cf_email__" data-cfemail="7c1a160e1f130f081d3c091910521e0e">[email&#160;protected]</span></a></p>
+                <p>Email: <a href="mailto:fjcosta@uel.br">fjcosta@uel.br</a></p>
 		    </div>
 		    
 		    <!-- Advisor -->
 		    <div class="team-member advisor">
 		        <h3>PhD Advisor</h3>
-		        <p><strong>Prof. Dr. Mariana R. Urbano</strong></p>
-		        <p>Email: <a href="/cdn-cgi/l/email-protection#f8a39d95999194a5b88d9d94d69a8a"><span class="__cf_email__" data-cfemail="147966616676757a7b546171783a7666">[email&#160;protected]</span></a></p>
+		        <p><strong>Prof. Dra. Mariana R. Urbano</strong></p>
+		        <p>Email: <a href="mailto:mrurbano@uel.br">mrurbano@uel.br</a></p>
 		    </div>
 		    
 		    <!-- Collaborator -->
-		    <div class="te 
+            <div class="team-member collaborator"> 
+                <h3>Professor Collaborator</h3>
+		        <p><strong>Prof. Dr. Rodrigo R. Pescim</strong></p>
+                <p>Email: <a href="mailto:rrpescim@uel.br">rrpescim@uel.br</a></p>
+		    </div>
