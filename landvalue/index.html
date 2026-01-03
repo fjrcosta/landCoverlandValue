@@ -5,101 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Land Cover and Land Value Maps - Londrina Metropolitan Region</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-            line-height: 1.6;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef3 100%);
+            line-height: 1.7;
+            color: #2d3748;
         }
+        
         h1 {
-            color: #2c5282;
+            color: #1a365d;
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
+        
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #718096;
             font-size: 1.1em;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
         }
+        
         .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
+        
         .section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
+        
         .section-title {
-            color: #2c5282;
-            font-size: 1.6em;
-            border-bottom: 3px solid #2c5282;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+            color: #2d3748;
+            font-size: 1.9em;
+            font-weight: 600;
+            border-bottom: 3px solid #000000;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            position: relative;
         }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #000000;
+        }
+        
         .map-card {
-            background-color: #f8f9fa;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-            border-left: 4px solid #2c5282;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border-left: 5px solid #cbd5e0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
+        
+        .map-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left-color: #2d3748;
+        }
+        
         .map-card h3 {
-            color: #333;
-            margin: 0 0 10px 0;
-            font-size: 1.1em;
-        }
-        .map-card p {
-            color: #666;
+            color: #2d3748;
             margin: 0 0 15px 0;
-            font-size: 0.9em;
+            font-size: 1.4em;
+            font-weight: 600;
         }
+        
+        .map-card p {
+            color: #4a5568;
+            margin: 0 0 15px 0;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
+        .specs {
+            background-color: #f7fafc;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 0.95em;
+            color: #2d3748;
+            border-left: 3px solid #cbd5e0;
+        }
+        
         .button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #2c5282;
-            color: white;
+            padding: 14px 28px;
+            background: #2d3748;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-size: 0.9em;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 10px;
         }
+        
         .button:hover {
-            background-color: #1a365d;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background: #F9B233;
+            color: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(249,178,51,0.4);
         }
+        
         .back-link {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 14px 28px;
             background-color: #e2e8f0;
-            color: #2c5282;
+            color: #2d3748;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9em;
-            transition: background-color 0.3s;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s ease;
             margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
+        
         .back-link:hover {
             background-color: #cbd5e0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
+        
         .citation-box {
-            background-color: #e6f2ff;
-            border: 1px solid #2c5282;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 20px 0;
+            background-color: #f7fafc;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
             font-family: 'Courier New', monospace;
-            font-size: 0.85em;
-            line-height: 1.5;
+            font-size: 0.9em;
+            line-height: 1.6;
+            border-left: 5px solid #2d3748;
         }
+        
         .citation-box strong {
-            color: #2c5282;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2d3748;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
@@ -109,39 +195,38 @@
         
         <!-- TabPFN Section -->
         <div class="section">
-            <h2 class="section-title">TabPFN v2 </h2>
-            <p style="color: #666; margin-bottom: 20px;">
+            <h2 class="section-title">TabPFN v2</h2>
+            <p style="color: #718096; margin-bottom: 20px; font-size: 1.05em;">
                 Tabular Prior-Fitting Networks with confidence intervals<br>
-                <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024</p>
+                <strong>Spatial Resolution:</strong> 109×109m | <strong>Year:</strong> 2024
+            </p>
 
-            <div class="map-card">            
-            
-            <div class="specs">
-                <strong>Lower Bound Estimate:</strong><br>
-                • Conservative value estimates (10th percentile of prediction distribution)<br>
-            </div>
+            <div class="map-card">
+                <div class="specs">
+                    <strong>Lower Bound Estimate:</strong><br>
+                    • Conservative value estimates (10th percentile of prediction distribution)
+                </div>
                 <a href="lowerBound_LandValueMapTabularPFN_NPr.html" class="button">View Lower Bound Map</a>
             </div>
             
             <div class="map-card">
                 <div class="specs">
-                <strong>Median Estimate:</strong><br>
-                • Central tendency value estimates (50th percentile of prediction distribution)<br>
-            </div>
+                    <strong>Median Estimate:</strong><br>
+                    • Central tendency value estimates (50th percentile of prediction distribution)
+                </div>
                 <a href="median_LandValueMapTabularPFN_NPr.html" class="button">View Median Map</a>
             </div>
             
             <div class="map-card">
                 <div class="specs">
-                <strong>Upper Bound Estimate:</strong><br>
-                • Optimistic value estimates (90th percentile of prediction distribution)
-                <br>
-            </div>   
+                    <strong>Upper Bound Estimate:</strong><br>
+                    • Optimistic value estimates (90th percentile of prediction distribution)
+                </div>
                 <a href="upperBound_LandValueMapTabularPFN_NPr.html" class="button">View Upper Bound Map</a>
             </div>
             
             <div class="citation-box">
-                <strong>Cite as:</strong><br>
+                <strong>Cite as:</strong>
                 [Author names]. ([Year]). [Title]. [Journal/Conference]. [DOI or URL]
             </div>
         </div>
@@ -149,9 +234,9 @@
         <!-- GAMLSS Temporal Section -->
         <div class="section">
             <h2 class="section-title">GAMLSS Temporal Series (2000-2021)</h2>
-            <p style="color: #666; margin-bottom: 20px;">
+            <p style="color: #718096; margin-bottom: 20px; font-size: 1.05em;">
                 Spatio-temporal Generalized Additive Models for Location, Scale and Shape<br>
-                <strong>Spatial Resolution:</strong> 50×50m | <strong>Temporal Coverage:</strong> July, 2000-2021<br>
+                <strong>Spatial Resolution:</strong> 50×50m | <strong>Temporal Coverage:</strong> July, 2000-2021
             </p>
             
             <div class="map-card">
@@ -167,8 +252,8 @@
             </div>
             
             <div class="citation-box">
-                <strong>Cite as:</strong><br>
-                Costa, F. J., Pescim, R. R., Nakamura, L. R., Urbano, M. R., Silva, V. C., & Ramires, T. G. (2025). Spatiotemporal analysis of urban land prices: a distributional regression approach. Spatial Economic Analysis, 20(2), 333–345. https://doi.org/10.1080/17421772.2025.2486144  
+                <strong>Cite as:</strong>
+                Costa, F. J., Pescim, R. R., Nakamura, L. R., Urbano, M. R., Silva, V. C., & Ramires, T. G. (2025). Spatiotemporal analysis of urban land prices: a distributional regression approach. Spatial Economic Analysis, 20(2), 333–345. https://doi.org/10.1080/17421772.2025.2486144
             </div>
         </div>
         
