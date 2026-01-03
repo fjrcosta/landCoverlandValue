@@ -11,20 +11,59 @@
             box-sizing: border-box;
         }
         
+        html, body {
+            background: linear-gradient(135deg, #fef6e0 0%, #fffdf5 100%);
+        }
+        
         body {
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 1400px;
-            margin: 0 auto;
+            margin: 0;
             padding: 30px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef3 100%);
             line-height: 1.7;
             color: #2d3748;
+        }
+
+        .institution-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: linear-gradient(to right, #F9B233 0%, #f0a127 35%, #d1942b 65%, #000000 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 0 auto 4rem;
+            max-width: 900px;
+            gap: 1rem;
+        }
+
+        .logo-row {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .institution-header img {
+            display: block;
+            margin: 0;
+            height: auto;
+        }
+
+        .logo-uel { width: 400px; }
+        .logo-ppu { width: 100px; }
+
+        .institution-text {
+            text-align: left;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            color: #000;
+            font-family: 'Lato', 'Penguin', sans-serif;
         }
         
         h1 {
             color: #1a365d;
             text-align: center;
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: 700;
             margin-bottom: 15px;
             letter-spacing: -0.5px;
@@ -42,6 +81,8 @@
             padding: 50px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .section {
@@ -190,6 +231,18 @@
     </style>
 </head>
 <body>
+    <section class="institution-header">
+        <div class="logo-row">
+            <img class="logo-uel" src="../logo_uel.png" alt="Logo UEL">
+        </div>
+        <div class="logo-row">
+            <img class="logo-ppu" src="../logo_ppu.png" alt="Logo PPU">
+            <div class="institution-text">
+                <span>Programa Assoc. UEM-UEL<br>de Pós-Graduação em Arq. e Urbanismo</span>
+            </div>
+        </div>
+    </section>
+
     <div class="container">
         <h1>Urban Land Value Maps</h1>
         
