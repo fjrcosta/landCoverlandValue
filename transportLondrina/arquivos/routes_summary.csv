@@ -1,0 +1,141 @@
+route_id,short_name,long_name,color
+964127,081,Epesmel,#2a6d7e
+970209,085,ILECE,#d96c00
+964128,086,APAE,#2A6D7E
+964163,087,Guarda Mirim,#2a6d7e
+970208,088,C.O.L,#e1800b
+17427,091,Corujão Santa Rita / Vista Bela,#ffff00
+17428,092,Corujão Ideal / Mister Thomas / Eucaliptos,#ffff00
+32446,093,Corujão Aquiles Stenghel / Cinco Conjuntos,#ffff00
+956874,094,Corujão Roseira,#f6a111
+237263,095,Corujão Vitória / Ouro Branco / Cafezal,#f6a111
+32447,096,Corujão Guilherme Pires / Acquaville / Interlagos,#ffff00
+20797,097,Corujão Avelino Vieira,#ffff00
+956873,098,Corujão Gleba Palhano,#f6a111
+17429,099,Corujão Bandeirantes / Ney Braga,#ffff00
+5938,100,Alemanha,#2a6d7e
+5939,101,Novo Amparo,#2A6D7E
+69180,102,Ideal,#2a6d7e
+5941,103,Santa Fé,#2A6D7E
+69181,104,Interlagos,#2a6979
+5944,106,Guilherme Pires,#2A6D7E
+5946,108,Albatroz,#2A6D7E
+5947,109,Rodoviária / Boulevard,#2a6d7e
+5948,110,Mister Thomas,#2A6D7E
+5949,111,Eucaliptos,#2A6D7E
+5950,112,Alexandre Urbanas,#2A6D7E
+5951,113,Pioneiros,#2A6D7E
+5952,121,Três Figueiras,#2A6D7E
+5953,200,Vila Brasil,#f6a111
+5954,201,Califórnia,#f1a930
+22788,202,Roseira,#f6a111
+22727,203,Ouro Branco,#f6a111
+22728,204,Tito Leal,#f6a111
+22729,205,Cafezal,#f6a111
+5959,206,Jd. Europa,#f6a111
+22730,207,Unopar,#f6a111
+5960,208,Higienópolis,#f6a111
+5961,209,Jardim Claudia,#f4a116
+22735,210,União da Vitoria,#f6a111
+5963,211,Patrimônio Regina,#f6a51b
+5965,213,Shopping Catuaí / Terminal Central,#fba616
+22740,214,Jamile Dequech,#f6a111
+22736,215,Novo Perobal,#f6a111
+22741,216,Chácara São Miguel,#f6a111
+5969,217,Vivendas do Arvoredo,#f9a61b
+150479,218,Jatobá,#ffb000
+22772,219,Nova Esperança,#f6a111
+5972,220,Emaús / Shopping Catuaí,#f6a51b
+5973,221,Limoeiro,#feac21
+22743,222,Vale Azul,#f6a111
+5975,223,Canaã,#f4a31a
+5976,224,Sonora,#f4a31a
+22770,226,Santa Joana,#f6a111
+6081,227,Jd. Botânico,#f4a31a
+6056,228,Anel Central / Bandeirantes,#eea01c
+26084,229,Gleba Palhano,#ec9e1a
+26095,231,Pequena Londres,#f4a218
+5977,250,São Luiz,#eca123
+22769,260,Usina 3 Bocas,#f6a111
+22739,270,Patrimônio Selva,#f6a111
+22767,271,Coroados,#f6a111
+980049,272,PARQUE INDUSTRIAL 4,#f6a111
+22766,275,Paiquerê,#f6a111
+22764,280,Taquaruna,#f6a111
+22746,285,Guairacá,#f6a111
+22763,290,Guaravera,#f6a111
+22762,295,Lerroville,#f6a111
+566454,296,COMUNIDADE ELI VIVE,#feac21
+5985,301,Presidente,#2A6D7E
+5986,302,Hedi,#2A6D7E
+5987,303,Tokio,#2A6D7E
+5989,305,Campus Universitário - Extra,#2A6D7E
+5990,306,Cidade Universitária,#2A6D7E
+5991,307,Avelino Vieira,#2A6D7E
+5992,308,Jardim Bandeirantes,#2A6D7E
+5993,309,Parque Ney Braga,#2A6D7E
+5994,310,Jardim do Sol,#2A6D7E
+5995,311,Santa Rita,#2A6D7E
+5996,312,Santo André,#2A6D7E
+5997,313,Maria Lucia,#2A6D7E
+5998,314,Jardim Olímpico,#2A6D7E
+6074,315,Columbia,#2A6D7E
+13671,317,Jardim Maracanã,#2a6d7e
+6090,351,Parador Terminal Oeste,#2A6D7E
+5999,400,Parigot de Souza,#2A6D7E
+6000,401,Chefe Newton,#2A6D7E
+6001,402,Conjunto Vivi Xavier,#2A6D7E
+6003,404,Heimtal,#2A6D7E
+6004,405,Maria Cecilia,#2A6D7E
+6005,406,Aquiles Stenghel,#2A6D7E
+6006,407,João Paz,#2A6D7E
+6007,408,Vila Recreio,#2A6D7E
+6011,412,Hilda Mandarino,#2A6D7E
+6012,413,Residencial do Café,#2A6D7E
+6013,414,Nova Olinda,#2A6D7E
+6014,415,Itapoá,#2A6D7E
+6016,417,Jardim Catuaí,#2A6D7E
+6017,418,Chácara Primavera,#2A6D7E
+6018,419,Jardim Porto Seguro,#2A6D7E
+6019,420,Terminal Vivi Xavier / Shopping Catuaí Norte,#2A6D7E
+637744,421,Jardim Alpes,#2a6d7e
+6022,423,São Jorge,#2A6D7E
+6023,424,Maristela,#2A6D7E
+6024,425,Cidade Industrial,#2A6D7E
+6025,426,Paris,#2A6D7E
+6026,427,Warta / Terminal Vivi Xavier,#2A6D7E
+6073,428,Vista Bela,#2A6D7E
+626107,430,Flor de Lotus,#2a6d7e
+6027,444,Warta / Terminal Milton Gavetti,#2A6D7E
+6028,445,Jardim Felicidade,#2A6D7E
+957354,447,Flores do Campo,#2a6d7e
+959776,448,BRF,#2a6d7e
+6030,501,Terminal Vivi Xavier / Terminal Central - Parador,#2A6D7E
+6031,502,Terminal Ouro Verde / Terminal Central - Parador,#2A6D7E
+6033,504,Terminal Milton Gavetti / Terminal Central  - Parador,#2A6D7E
+6034,505,Terminal Vivi Xavier / Terminal Central - Expresso,#2A6D7E
+6036,512,Terminal Ouro Verde / Terminal Central - Parador,#2A6D7E
+6037,600,Terminal Acapulco / Terminal Central - EXPRESSO,#f49f11
+6038,601,Terminal Acapulco / Terminal Central - Parador,#f6a213
+22745,602,Terminal Irerê / Terminal Acapulco,#f6a111
+22744,603,Terminal Irerê / Terminal Central,#f6a111
+215655,703,Aquiles Stenghel / Centro - Rápido,#0ea4ee
+6035,706,Violim / Maria Cecilia - Rápido,#2a6d7e
+6044,800,Terminal Vivi Xavier / Terminal Acapulco,#0ea4ee
+6045,801,Terminal Vivi Xavier / Centro Cívico / Terminal Acapulco,#0ea4ee
+6046,802,Terminal Vivi Xavier / Avenida Bandeirantes,#0ea4ee
+6047,803,Terminal Vivi Xavier / Terminal Shopping Catuaí,#0ea4ee
+471963,804,Terminal Oeste / Shopping Catuaí,#0ca4ef
+6070,806,Avenida Saul Elkind / Shopping Catuaí,#0ea4ee
+985606,825,LondrinNatal,#2a6d7e
+6052,835,UEL / Terminal Milton Gavetti,#2A6D7E
+6053,900,Terminal Vivi Xavier / Boulevard / HU,#2A6D7E
+6054,901,Cacique / Cinco Conjuntos,#2A6D7E
+6055,902,Cidade Industrial / Maritacas,#2A6D7E
+6057,904,Terminal Vivi Xavier / UEL / Shopping Catuaí / Terminal Acapulco,#2A6D7E
+6058,905,Terminal Acapulco / HU,#eea323
+6059,906,Colúmbia  / Shopping Catuaí / Terminal Acapulco,#f49e0c
+235332,907,Terminal Acapulco / Gleba Palhano,#f6a111
+385625,913,Robert Koch / Gleba Palhano,#10a3ec
+6087,931,Terminal Oeste / Terminal Ouro Verde,#2A6D7E
+6088,932,Terminal Vivi Xavier / Terminal Oeste / UEL,#2A6D7E

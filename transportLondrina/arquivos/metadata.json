@@ -1,0 +1,8 @@
+{
+  "total_routes": 140,
+  "total_trips": 636,
+  "total_stops": 14632,
+  "crs": "EPSG:4326",
+  "source": "https://bus2.info/2you/#/2fvn7",
+  "project_id": 83
+}
